@@ -43,6 +43,16 @@ public class UserRegistration {
 		else
 			System.out.println(mobile + " is not a valid mobile number");
 	}
+	public static void passwordCheck(String password) {
+		String regex = "^[a-zA-Z0-9]{8,}$"; // minimum 8 characters required   
+		Pattern pattern = Pattern.compile(regex);
+		Matcher match = pattern.matcher(password);
+		boolean bool = match.matches(); 
+		if (bool) 
+			System.out.println(password + " is a valid password");
+		else
+			System.out.println(password + " is not a valid password");
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Program");
 		Scanner sc = new Scanner(System.in);
@@ -54,10 +64,13 @@ public class UserRegistration {
 		String email = sc.nextLine();
 		System.out.println("Enter a valid mobile number starting with 91 folowwed by a space and 10 didit number");
 		String mobile = sc.nextLine();
+		System.out.println("Enter a valid password with minimum 8 charcters");
+		String password = sc.nextLine();
 		firstNameCheck(firstName);
 		lastNameCheck(lastName);
 		emailCheck(email);
 		mobilenumberCheck(mobile);
+		passwordCheck(password);
 	}
 
 }
