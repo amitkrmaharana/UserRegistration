@@ -44,7 +44,7 @@ public class UserRegistration {
 			System.out.println(mobile + " is not a valid mobile number");
 	}
 	public static void passwordCheck(String password) {
-		String regex = "^[a-zA-Z0-9]{8,}$"; // minimum 8 characters required   
+		String regex = "^(?=.*[A-Z])[a-zA-Z0-9]{8,}$"; // minimum 8 characters required and atleast 1 uppercase character   
 		Pattern pattern = Pattern.compile(regex);
 		Matcher match = pattern.matcher(password);
 		boolean bool = match.matches(); 
