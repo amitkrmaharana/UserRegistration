@@ -23,6 +23,16 @@ public class UserRegistration {
 		else
 			System.out.println(name + " is not a valid last name");
 	}
+	public static void emailCheck(String email) {
+		String regex = "^[a-zA-Z0-9]{3,}([.]{1}+[a-zA-Z0-9]{3,})*[@]{1}[a-zA-Z0-9]{2,}[.]{1}[a-zA-Z0-9]{2,}([.]{1}[a-zA-Z0-9]{2,})*$"; // abc.xyz@bl.co.in is valid with abc bl and co are mandatory 2 optional(xyz,in) with precise @ and . positions  
+		Pattern pattern = Pattern.compile(regex);
+		Matcher match = pattern.matcher(email);
+		boolean bool = match.matches();// checks if the pattern matches with the given pattern and returns a boolean value 
+		if (bool) 
+			System.out.println(email + " is a valid email");
+		else
+			System.out.println(email + " is not a valid email");
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Program");
 		Scanner sc = new Scanner(System.in);
@@ -30,8 +40,11 @@ public class UserRegistration {
 		String firstName = sc.next();
 		System.out.println("Enter a valid last name");
 		String lastName = sc.next();
+		System.out.println("Enter a valid email");
+		String email = sc.next();
 		firstNameCheck(firstName);
 		lastNameCheck(lastName);
+		emailCheck(email);
 	}
 
 }
