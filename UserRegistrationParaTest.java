@@ -52,7 +52,7 @@ public class UserRegistrationParaTest {
         });
     }
     @Test
-    public void checkEmailIsvalidOrNot() {
+    public void checkEmailIsvalidOrNot() throws UserRegistrationException {
         System.out.println("Email:" + this.expectedResult);
         Assert.assertEquals(this.expectedResult, person.isEmailValid(this.email));
     }
